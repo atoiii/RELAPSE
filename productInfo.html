@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Product Information{% endblock %}
+{% block content %}
+<h1 class="display-4">Product Information</h1>
+<div>
+    {% if count == 0 %}
+    <p>There are no products added.</p>
+    {% elif count == 1 %}
+    <p>There is 1 product added.</p>
+    {% else %}
+    <p>There are {{ count }} products.</p>
+    {% endif %}
+</div>
+<div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Product Image</th>
+            <th>Product Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for product in products_list %}
+        <tr>
+            <td>{{product.get_product_id()}}</td>
+            <td>{{product.get_product_image()}}</td>
+            <td>{{product.get_product_name()}}</td>
+            <td>{{product.get_description()}}</td>
+            <td>{{product.get_price()}}</td>
+            <td><a href="/editProduct/{{ product.get_product_id() }}" class="btn btn-warning">Edit</a></td>
+            <td>
+                <form action="{{url_for('delete_product', id=product.get_product_id())}}" method="POST">
+                    <input type="submit" value="Delete" class="btn btn-danger">
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1 class="display-4">RELAPSE</h1>
+<h2 class="#">HOT SELLERS</h2>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Product</th>
+        <th>Details</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            <div class="product-image">
+                <p>(INSERT PRODUCT IMAGE)</p>
+            </div>
+            <div class="product-name">
+                <strong>Product Name</strong>
+            </div>
+        </td>
+        <td>
+            <div class="product-description">
+                Product Description
+            </div>
+            <div class="product-price">
+                $Price
+            </div>
+        </td>
+    </tr>
+    <!-- Repeat for other products -->
+    </tbody>
+</table>
+
+{% endblock %}
+
