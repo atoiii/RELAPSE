@@ -6,7 +6,7 @@
         {% for product in products %}
         <div class="col-md-4">
             <div class="card mt-3">
-                <img src="{{ url_for('static', filename=product.image) }}" class="card-img-top" alt="{{ product.name }}">
+                <img src="{{ url_for('static', filename=product['image']) }}" alt="{{ product['name'] }}" style="width: 250px; height: 300px;">
                 <div class="card-body">
                     <h5 class="card-title">{{ product.name }}</h5>
                     <p class="card-text">${{ product.price }}</p>
